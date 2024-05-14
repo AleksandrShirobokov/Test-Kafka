@@ -70,8 +70,8 @@ services:
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
       DYNAMIC_CONFIG_ENABLED: 'true'
 ```
-### После выполнения compose файла проверяю работоспособность контейнера
-- **Перехожу на порт kafka-ui:**
+## После выполнения compose файла проверяю работоспособность контейнера
+### Перехожу на порт kafka-ui:
   
 ![Снимок экрана (109)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/dc4070c8-5937-43ff-a608-906ccf981d51)
 
@@ -84,10 +84,22 @@ services:
 ![Снимок экрана (111)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/da1bb951-0233-49ab-b5ed-fab357ddb43c)
 
 
-### Для отправки сообщения выполняю следующий запрос:
+
+## Для отправки сообщения выполняю следующий запрос:
 
 ```
 curl -X POST -H "Content-Type: application/vnd.kafka.json.v2+json" \
 --data '{"records":[{"value":{"key1":"value1"}}]}' \
 http://localhost:8082/topics/test-topic
 ```
+
+
+## Проверяю в kafka-ui:
+- **Созданный test-topic:**
+  
+![Снимок экрана (8)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/8e299881-f260-4f6c-a077-26e2d2812ad9)
+
+- **Полученное сообщение:**
+
+![Снимок экрана (9)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/1ad612be-5148-4833-bf9e-23c8cd777c44)
+
