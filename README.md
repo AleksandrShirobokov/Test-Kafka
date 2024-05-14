@@ -81,3 +81,13 @@ services:
 - **Топики:**
 
 ![Снимок экрана (111)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/da1bb951-0233-49ab-b5ed-fab357ddb43c)
+
+
+### Для отправки сообщения выполняю следующий запрос:
+
+```
+curl -X POST -H "Content-Type: application/vnd.kafka.json.v2+json" \
+--data '{"records":[{"value":{"key1":"value1"}}]}' \
+http://localhost:8082/topics/test-topic
+
+```
