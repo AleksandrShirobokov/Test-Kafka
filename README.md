@@ -74,6 +74,10 @@ services:
   
 ![Снимок экрана (109)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/dc4070c8-5937-43ff-a608-906ccf981d51)
 
+- **Брокер:**
+
 ![Снимок экрана (110)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/f9bae42e-761d-4052-ae1e-b3b02b406043)
+
+- **Топики:**
 
 ![Снимок экрана (111)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/da1bb951-0233-49ab-b5ed-fab357ddb43c)
