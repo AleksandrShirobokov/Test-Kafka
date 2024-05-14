@@ -1,10 +1,10 @@
 # Test-Kafka
 
-Создаю docker-compose.yml файл с такими сервисами как:
--- 1.Zookeeper
--- 2.Kafka
--- 3.Kafka-rest
--- 4.Kafka-ui
+### Создаю docker-compose.yml файл с такими сервисами как:
+- **1.Zookeeper**
+- **2.Kafka**
+- **3.Kafka-rest**
+- **4.Kafka-ui**
 
 ```
 version: '2'
