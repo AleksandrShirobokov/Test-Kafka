@@ -182,3 +182,18 @@ http://localhost:8082/consumers/consumer_new/instances/my_instance
 
 ![Снимок экрана туц](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/fb8c47ae-d21e-4a0d-896e-87f71b5d4ee5)
 
+## Отслеживание работы в kafka-ui:
+
+- **Группа *consumer_new* и *my_topic*:**
+
+![Снимок экрана (12)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/5b8f56ce-0d32-4c76-b17a-93073e91d833)
+
+- **Полученное сообщение:**
+
+![Снимок экрана (13)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/b0e78f4d-463a-40b1-ba95-fe30d1c7d170)
+
+- **Отписка от *consumer_new*(статус группы переходит в empty):**
+
+![Снимок экрана (14)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/4b7ab16e-2bdb-428b-bcd3-a682902b6029)
+
+  
