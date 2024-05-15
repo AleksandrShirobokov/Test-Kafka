@@ -103,3 +103,39 @@ http://localhost:8082/topics/test-topic
 
 ![Снимок экрана (9)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/1ad612be-5148-4833-bf9e-23c8cd777c44)
 
+## Также использую скрипт python для отправки сообщения:
+
+```
+#!/usr/bin/env python3
+import requests
+import json
+
+url = "http://localhost:8082/topics/test-topic" #Адрес Rest
+
+headers = {
+    "Content-Type": "application/vnd.kafka.json.v2+json" #Заголовки
+}
+
+data = {
+    "records": [
+        {"value": {"message": "Проверка доставки сообщения"}}  #Данные сообщ.
+    ]
+}
+
+data_json = json.dumps(data) #Перевод в json
+
+response = requests.post(url, headers=headers, data=data_json) #POST запрос
+
+if response.status_code == 200:  #Стату ответа
+    print("Message sent successfully!")
+else:
+    print(f"Failed to send message. Status code: {response.status_code}, Response: {response.text}")
+```
+
+- **Запрос в CLI:**
+
+![Снимок экрана (112)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/81e71d9a-d342-4689-a903-47b5f7d5a25e)
+
+- **Сообщение в test-topic:**
+
+![Снимок экрана (113)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/86a5a698-e9bd-4def-9ef3-b5d692ca514d)
