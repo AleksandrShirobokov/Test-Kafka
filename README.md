@@ -180,3 +180,5 @@ http://localhost:8082/consumers/consumer_new/instances/my_instance
 
 ## Результат работы в cli:
 
+![Снимок экрана туц](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/fb8c47ae-d21e-4a0d-896e-87f71b5d4ee5)
+
