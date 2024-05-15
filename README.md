@@ -126,7 +126,7 @@ data_json = json.dumps(data) #Перевод в json
 
 response = requests.post(url, headers=headers, data=data_json) #POST запрос
 
-if response.status_code == 200:  #Стату ответа
+if response.status_code == 200:  #Статус ответа
     print("Message sent successfully!")
 else:
     print(f"Failed to send message. Status code: {response.status_code}, Response: {response.text}")
@@ -139,3 +139,44 @@ else:
 - **Сообщение в test-topic:**
 
 ![Снимок экрана (113)](https://github.com/AleksandrShirobokov/Test-Kafka/assets/69298696/86a5a698-e9bd-4def-9ef3-b5d692ca514d)
+
+## Работа с новой группой слушателей:
+
+- **Cоздаю новую группу *consumer_new* с *my_topic*:**
+
+```
+curl -X POST -H "Content-Type: application/vnd.kafka.v2+json"
+--data '{"name": "my_instance", "format": "json", "auto.offset.reset": "earliest"}'
+http://localhost:8082/consumers/consumer_new
+```
+
+- **Подписываюсь на новую группу *consumer_new*:**
+
+```
+curl -X POST -H "Content-Type: application/vnd.kafka.v2+json"
+--data '{"topics":["my_topic"]}' http://localhost:8082/consumers/consumer_new/instances/my_instance/subscription
+```  
+
+- **Отправляю POST-запрос с сообщением в *my_topic*:**
+
+```
+curl -X POST -H "Content-Type: application/vnd.kafka.json.v2+json"
+--data '{"records":[{"value":{"message":"Проверка связи"}}]}' http://localhost:8082/topics/my_topic
+```
+
+- **Отправляю GET для получения отправленного сообщения:**
+
+```
+curl -X GET -H "Accept: application/vnd.kafka.json.v2+json"
+http://localhost:8082/consumers/consumer_new/instances/my_instance/records
+```
+
+- **После получения сообщения удаляю *consumer_new:***
+
+```
+ curl -X DELETE -H "Content-Type: application/vnd.kafka.v2+json"
+http://localhost:8082/consumers/consumer_new/instances/my_instance
+```
+
+## Результат работы в cli:
+
